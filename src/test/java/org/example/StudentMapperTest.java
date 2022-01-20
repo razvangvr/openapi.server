@@ -69,7 +69,9 @@ class StudentMapperTest {
             //But if I use Lombook's @Data, since it also gives you Equals and HashCode,
             //This assertion passes
 
-            assertThat(studentA_).usingRecursiveComparison().isEqualTo(studentA);
+            assertThat(studentA_).usingRecursiveComparison()
+                    .ignoringFields("address.student")
+                    .isEqualTo(studentA);
         }
 
     }
@@ -98,6 +100,8 @@ class StudentMapperTest {
                 .joinDate(LocalDate.now())
                 .address(address)
                 .build();
+
+        address.setStudent(student);
 
         return student;
     }
