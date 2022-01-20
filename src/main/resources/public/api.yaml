@@ -184,6 +184,15 @@ components:
           type: string
         message:
           type: string
+
+    AddressDTO:
+      type: object
+      properties:
+        street:
+          type: string
+        streetNo:
+          type: integer
+
     StudentDTO:
       type: object
       required:
@@ -201,3 +210,5 @@ components:
           type: string
           format: date
           description: the day on which the student was created
+        address:
+          $ref: '#/components/schemas/AddressDTO'
