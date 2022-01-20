@@ -6,7 +6,7 @@ import org.example.rest.model.StudentDTO;
 import org.mapstruct.Mapper;
 
 @Mapper
-public interface StudentWSMapper {
+public interface StudentMapper {
 
     List<StudentDTO> toStudentDTOList(List<Student> students);
 

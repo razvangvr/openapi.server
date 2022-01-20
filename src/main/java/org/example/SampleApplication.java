@@ -1,11 +1,10 @@
-package org.example.boot;
+package org.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"org.example"})
 public class SampleApplication {
 
     public static void main(final String[] args) {

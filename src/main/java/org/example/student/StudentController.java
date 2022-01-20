@@ -19,7 +19,7 @@ public class StudentController implements StudentApi {
     private StudentService studentService;
 
     @Autowired
-    private StudentWSMapper studentMapper;
+    private StudentMapper studentMapper;
 
     @Override
     public ResponseEntity<List<StudentDTO>> getStudents() {
