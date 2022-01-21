@@ -192,6 +192,18 @@ components:
           type: string
         streetNo:
           type: integer
+        inhabitants:
+          type: array
+          items:
+            $ref: '#/components/schemas/InhabitantDTO'
+
+    InhabitantDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: integer
 
     StudentDTO:
       type: object

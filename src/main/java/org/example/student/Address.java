@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
 @Builder
 public class Address {
@@ -19,4 +21,6 @@ public class Address {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Student student;
+
+    private List<Inhabitant> inhabitants;
 }
