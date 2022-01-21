@@ -8,9 +8,9 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface StudentMapper {
 
-    List<StudentDTO> toStudentDTOList(List<Student> students);
+    List<StudentDTO> toDTOList(List<Student> students);
 
-    StudentDTO toStudentDTO(Student student);
+    StudentDTO toDTO(Student student);
 
-    Student toStudent(StudentDTO studentDTO);
+    Student toEntity(StudentDTO studentDTO);
 }

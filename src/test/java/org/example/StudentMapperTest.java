@@ -34,10 +34,10 @@ class StudentMapperTest {
 
             Student studentA = getStudentScalar();
 
-            StudentDTO studentDTO = studentMapper.toStudentDTO(studentA);
+            StudentDTO studentDTO = studentMapper.toDTO(studentA);
 
             //studentA_ se citeste: studentA'
-            Student studentA_ = studentMapper.toStudent(studentDTO);
+            Student studentA_ = studentMapper.toEntity(studentDTO);
 
             assertThat(studentA_).isNotSameAs(studentA);
 
@@ -56,10 +56,10 @@ class StudentMapperTest {
 
             Student studentA = getStudentWithAddress();
 
-            StudentDTO studentDTO = studentMapper.toStudentDTO(studentA);
+            StudentDTO studentDTO = studentMapper.toDTO(studentA);
 
             //studentA_ se citeste: studentA'
-            Student studentA_ = studentMapper.toStudent(studentDTO);
+            Student studentA_ = studentMapper.toEntity(studentDTO);
 
             assertThat(studentA_).isNotSameAs(studentA);
 

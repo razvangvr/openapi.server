@@ -23,29 +23,29 @@ public class StudentController implements StudentApi {
 
     @Override
     public ResponseEntity<List<StudentDTO>> getStudents() {
-        return ResponseEntity.ok(studentMapper.toStudentDTOList(studentService.getStudents()));
+        return ResponseEntity.ok(studentMapper.toDTOList(studentService.getStudents()));
     }
 
     @Override
     public ResponseEntity<StudentDTO> getStudent(Integer id) {
         return ResponseEntity
-            .ok(studentMapper.toStudentDTO(studentService.getStudent(id).orElseThrow(NotFoundException::new)));
+            .ok(studentMapper.toDTO(studentService.getStudent(id).orElseThrow(NotFoundException::new)));
     }
 
     @Override
     public ResponseEntity<StudentDTO> addStudent(@Valid StudentDTO studentDTO) {
-        return ResponseEntity.ok(studentMapper.toStudentDTO(
+        return ResponseEntity.ok(studentMapper.toDTO(
             studentService.addStudent(
-                studentMapper.toStudent(studentDTO)
+                studentMapper.toEntity(studentDTO)
             )
         ));
     }
 
     @Override
     public ResponseEntity<StudentDTO> updateStudent(@Valid StudentDTO studentDTO) {
-        return ResponseEntity.ok(studentMapper.toStudentDTO(
+        return ResponseEntity.ok(studentMapper.toDTO(
             studentService.updateStudent(
-                studentMapper.toStudent(studentDTO)
+                studentMapper.toEntity(studentDTO)
             )
         ));
     }
