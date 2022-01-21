@@ -92,16 +92,33 @@ class StudentMapperTest {
 
         StudentDTO studentDTO = studentMapper.toDTO(studentA);
 
-        System.out.println(studentDTO);
-//        class StudentDTO {
-//            id: 2
-//            name: John Doe
-//            joinDate: 2022-01-21
-//            address: class AddressDTO {
-//                street: Cooperatorilor
-//                streetNo: 19
-//            }
-//        }
+
+        //citeste studentA Prim
+        //studentA'
+        Student studentA_ = studentMapper.toEntity(studentDTO);
+        assertThat(studentA_).isNotSameAs(studentA);
+
+        assertThat(studentA_).isEqualTo(studentA);
+
+//        assertThat(studentA_).usingRecursiveComparison()
+//                .ignoringFields("address.student")
+//                .isEqualTo(studentA);
+        /*
+         * This fails with
+         * field/property 'address.inhabitants[0].address' differ:
+- actual value   : null
+- expected value : Address(street=Cooperatorilor, streetNo=19, inhabitants=[Inhabitant(name=George, age=25), Inhabitant(name=Marty, age=15)])
+
+field/property 'address.inhabitants[1].address' differ:
+- actual value   : null
+- expected value : Address(street=Cooperatorilor, streetNo=19, inhabitants=[Inhabitant(name=George, age=25), Inhabitant(name=Marty, age=15)])
+         *
+         * */
+
+        assertThat(studentA_).usingRecursiveComparison()
+                .ignoringFields("address.student")
+                .ignoringFields("address.inhabitants.address")
+                .isEqualTo(studentA);
     }
 
     static Student getStudentScalar() {
