@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import org.example.rest.api.StudentApi;
 import org.example.rest.model.StudentDTO;
 
 @RestController
+@Slf4j
 public class StudentController implements StudentApi {
 
     @Autowired
@@ -23,6 +25,7 @@ public class StudentController implements StudentApi {
 
     @Override
     public ResponseEntity<List<StudentDTO>> getStudents() {
+        log.info("getStudents called");
         return ResponseEntity.ok(studentMapper.toDTOList(studentService.getStudents()));
     }
 
